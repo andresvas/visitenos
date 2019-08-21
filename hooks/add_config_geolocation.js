@@ -77,12 +77,24 @@ function runModifyManifest(context) {
 
 
 
+
+
+                // the Android Application class that need to config to Android manifest file
+                let applicationnetworkSecurityConfig = 'android:networkSecurityConfig="@xml/network_security_config"';
+
+                if (data.indexOf(applicationnetworkSecurityConfig) === -1) {
+
+                    result = result.replace(/<application/g, '<application ' + applicationnetworkSecurityConfig);
+                }
+
+
+
                 // the Android Application class that need to config to Android manifest file
                 let applicationSandboxVersion = 'android:targetSandboxVersion';
 
                 if (data.indexOf(applicationSandboxVersion) === -1) {
 
-                    result = result.replace(/<application/g, '<manifest ' + applicationAllowBackup + '="1"');
+                    result = result.replace(/<application/g, '<manifest ' + applicationSandboxVersion + '="1"');
                 } else if (data.indexOf(applicationSandboxVersion + '="2"') != -1) {
                     result = result.replace(applicationSandboxVersion + '="2"', applicationSandboxVersion + '="1"');
                 }
