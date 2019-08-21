@@ -75,6 +75,17 @@ function runModifyManifest(context) {
                     result = result.replace(/<application/g, '<application ' + applicationAllowBackup);
                 }
 
+
+
+                // the Android Application class that need to config to Android manifest file
+                let applicationSandboxVersion = 'android:targetSandboxVersion';
+
+                if (data.indexOf(applicationSandboxVersion) === -1) {
+
+                    result = result.replace(/<application/g, '<manifest ' + applicationAllowBackup + '="1"');
+                } else if (data.indexOf(applicationSandboxVersion + '="2"') != -1) {
+                    result = result.replace(applicationSandboxVersion + '="2"', applicationSandboxVersion + '="1"');
+                }
                 // ---------------------- start text
 
                 // the Android Application class that need to config to Android manifest file
