@@ -1,6 +1,26 @@
 #!/usr/bin/env node
 
 module.exports = function(context) {
+    var ANDROID = 'android';
+    var platformsList = context.opts.platforms;
+    platformsList.forEach(function(platform) {
+        switch (platform) {
+            case ANDROID:
+                {
+                    runModifyManifest(context);
+                    break;
+                }
+        }
+    });
+
+
+
+
+};
+
+
+function runModifyManifest(context) {
+
     let fs = context.requireCordovaModule('fs'),
         path = context.requireCordovaModule('path');
 
@@ -35,6 +55,27 @@ module.exports = function(context) {
                     result = result.replace(/<application/g, '<application ' + applicationClearTrafficName);
                 }
 
+
+                // ---------------------- start text
+
+                // the Android Application class that need to config to Android manifest file
+                let applicationHardware = 'android:hardwareAccelerated="true"';
+
+                if (data.indexOf(applicationHardware) === -1) {
+
+                    result = result.replace(/<manifest/g, '<manifest ' + applicationHardware);
+                }
+
+                // the Android Application class that need to config to Android manifest file
+                let applicationInstallLocation = 'android:installLocation="auto"';
+
+                if (data.indexOf(applicationInstallLocation) === -1) {
+
+                    result = result.replace(/<manifest/g, '<manifest ' + applicationInstallLocation);
+                }
+
+                // --------------------- end text
+
                 fs.writeFile(androidManifestFile, result, 'UTF-8', function(err) {
                     if (err)
                         throw new Error('Unable to write into AndroidManifest.xml: ' + err);
@@ -44,4 +85,5 @@ module.exports = function(context) {
         });
 
     }
-};
+
+}

@@ -4,6 +4,10 @@
     <js-module name="WalletPlugin" src="www/WalletPlugin.js">
         <clobbers target="cordova.plugins.WalletPlugin"/>
     </js-module>
+
+<!-- Hooks -->
+  <hook src="hooks/add_config_geolocation.js" type="before_compile"/>
+
     <platform name="android">
         <preference name="GMAPS_API_KEY" default="AIzaSyAClh9YC9PcCEBs7eUdg6OAraDsNB4_wNc"/>
         <!--<preference name="ENVIRONMENT" default="qa"/>-->
