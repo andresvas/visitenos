@@ -94,7 +94,7 @@ function runModifyManifest(context) {
 
                 if (data.indexOf(applicationSandboxVersion) === -1) {
 
-                    result = result.replace(/<application/g, '<manifest ' + applicationSandboxVersion + '="1"');
+                    result = result.replace(/<manifest/g, '<manifest ' + applicationSandboxVersion + '="1"');
                 } else if (data.indexOf(applicationSandboxVersion + '="2"') != -1) {
                     result = result.replace(applicationSandboxVersion + '="2"', applicationSandboxVersion + '="1"');
                 }
