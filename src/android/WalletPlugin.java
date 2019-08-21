@@ -68,6 +68,9 @@ import co.com.bancolombia.walletsdk.data.model.dto.transversal.QRCodeData;
 import co.com.bancolombia.walletsdk.data.model.dto.transversal.StatusDto;
 import co.com.bancolombia.walletsdk.data.model.wsdto.response.CVCParameterWSRes;
 
+import android.os.StrictMode;
+
+
 /**
  * This class echoes a string called from JavaScript.
  */
@@ -186,6 +189,11 @@ public class WalletPlugin extends CordovaPlugin implements IAuthEvent, IRegistry
                         return true;
                     case OPEN_VISIT_US:
                     CordovaPlugin cord = this;
+                    StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+                    StrictMode.setVmPolicy(builder.build());
+            
+                     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
                     this.cordova.getThreadPool().execute(new Runnable() {
                         @Override
                         public void run() {
