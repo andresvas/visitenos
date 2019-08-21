@@ -1,0 +1,6 @@
+framework module JOSE {
+  umbrella header "JOSE.h"
+
+  export *
+  module * { export * }
+}

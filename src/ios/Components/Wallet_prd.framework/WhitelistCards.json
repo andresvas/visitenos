@@ -1,0 +1,12 @@
+{
+    "Franchises" : [
+        "MASTERCARD - MAESTRO",
+        "MASTERCARD - MASTERDEBIT",
+        "MASTERCARD"
+    ],
+    "CardTypes" : [
+        "Débito Maestro",
+        "Débito Mastercard",
+        "e-Prepago Mastercard"
+    ]
+}

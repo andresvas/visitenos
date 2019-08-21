@@ -1,0 +1,205 @@
+{
+    "UnmappedErrorWS" : {
+        "_status" : {
+            "statusCode" : "0005",
+            "transactionCode" : "0",
+            "userMessage" : "En este momento no es posible realizar la operación."
+        }
+    },
+    "InvalidRequestWM" : {
+        "_status" : {
+            "statusCode" : "0002",
+            "transactionCode" : "0",
+            "userMessage" : "En este momento no es posible realizar la operación, por favor intentalo más tarde"
+        }
+    },
+    "RefreshTokenWM" : {
+        "_status" : {
+            "statusCode" : "0021",
+            "transactionCode" : "0",
+            "userMessage" : "En este momento no es posible realizar la operación."
+        }
+    },
+    "AuthSuccessWS" : {
+        "_status" : {
+            "statusCode" : "0001",
+            "transactionCode" : "0301",
+            "userMessage" : "Autenticación exitosa."
+        }
+    },
+    "AuthFailedWM" : {
+        "_status" : {
+            "statusCode" : "0005",
+            "transactionCode" : "0301",
+            "userMessage" : "En este momento no es posible realizar la operación."
+        }
+    },
+    "RegisterWS" : {
+        "_status" : {
+            "statusCode" : "0005",
+            "transactionCode" : "0301",
+            "userMessage" : "En este momento no es posible finalizar la operación."
+        }
+    },
+    "TnCNotFoundWS" : {
+        "_status" : {
+            "statusCode" : "0006",
+            "transactionCode" : "0301",
+            "userMessage" : "En este momento no es posible finalizar el registro."
+        }
+    },
+    "UserSuspendedWS" : {
+        "_status" : {
+            "statusCode" : "0008",
+            "transactionCode" : "0301",
+            "userMessage" : "En este momento tu Billetera está bloqueada para realizar pagos. Comunícate con la Sucursal Telefónica 01800 09 12345."
+        }
+    },
+    "RegisterSharedKeyWS" : {
+        "_status" : {
+            "statusCode" : "0010",
+            "transactionCode" : "0301",
+            "userMessage" : "En este momento no es posible finalizar la operación."
+        }
+    },
+    "UnRegisterSharedKeyWS" : {
+        "_status" : {
+            "statusCode" : "0011",
+            "transactionCode" : "0301",
+            "userMessage" : "En este momento no es posible finalizar la operación."
+        }
+    },
+    "JWKNotFoundWS" : {
+        "_status" : {
+            "statusCode" : "0013",
+            "transactionCode" : "0301",
+            "userMessage" : "En este momento no es posible realizar la operación."
+        }
+    },
+    "CardListWS" : {
+        "_status" : {
+            "statusCode" : "0005",
+            "transactionCode" : "0302",
+            "userMessage" : "En este momento no es posible realizar la operación."
+        }
+    },
+    "CardListWM" : {
+        "_status" : {
+            "statusCode" : "0104",
+            "transactionCode" : "0302",
+            "userMessage" : "Actualmente no tienes productos disponibles para visualizar."
+        }
+    },
+    "ActivationCardWS" : {
+        "_status" : {
+            "statusCode" : "0005",
+            "transactionCode" : "0303",
+            "userMessage" : "En este momento no es posible realizar la operación."
+        }
+    },
+    "UnhideCardWS" : {
+        "_status" : {
+            "statusCode" : "0005",
+            "transactionCode" : "0304",
+            "userMessage" : "En este momento no es posible realizar la operación."
+        }
+    },
+    "HideCardWS" : {
+        "_status" : {
+            "statusCode" : "0005",
+            "transactionCode" : "0305",
+            "userMessage" : "En este momento no es posible realizar la operación."
+        }
+    },
+    "DefaultCardWS" : {
+        "_status" : {
+            "statusCode" : "0005",
+            "transactionCode" : "0306",
+            "userMessage" : "En este momento no es posible realizar la operación."
+        }
+    },
+    "QRCodeReadSuccessfullWM" : {
+        "_status" : {
+            "statusCode" : "0001",
+            "transactionCode" : "0307",
+            "userMessage" : "Lectura de Código QR Exitosa."
+        }
+    },
+    "PaymentFailedWS" : {
+        "_status" : {
+            "statusCode" : "0005",
+            "transactionCode" : "0307",
+            "userMessage" : "En este momento no es posible realizar el pago."
+        }
+    },
+    "InvalidPurchaseAmountWM" : {
+        "_status" : {
+            "statusCode" : "0007",
+            "transactionCode" : "0307",
+            "userMessage" : "El valor ingresado no es permitido. Digita un nuevo valor"
+        }
+    },
+    "InvalidTipAmountWM" : {
+        "_status" : {
+            "statusCode" : "0008",
+            "transactionCode" : "0307",
+            "userMessage" : "El valor ingresado excede el porcentaje permitido. Digita un nuevo valor"
+        }
+    },
+    "InvalidQRCodeWM" : {
+        "_status" : {
+            "statusCode" : "0010",
+            "transactionCode" : "0307",
+            "userMessage" : "En este momento no es posible realizar el pago."
+        }
+    },
+    "TransformQRCodeWM" : {
+        "_status" : {
+            "statusCode" : "0011",
+            "transactionCode" : "0307",
+            "userMessage" : "En este momento no es posible realizar el pago."
+        }
+    },
+    "InvalidChannelWM" : {
+        "_status" : {
+            "statusCode" : "0012",
+            "transactionCode" : "0307",
+            "userMessage" : "En este momento no es posible realizar el pago."
+        }
+    },
+    "InvalidCRChannelWM" : {
+        "_status" : {
+            "statusCode" : "0017",
+            "transactionCode" : "0307",
+            "userMessage" : "No es posible realizar el pago en este comercio."
+        }
+    },
+    "ChangeStateWS" : {
+        "_status" : {
+            "statusCode" : "0005",
+            "transactionCode" : "0310",
+            "userMessage" : "En este momento no es posible realizar la operación."
+        }
+    },
+    "AcceptTnCWS" : {
+        "_status" : {
+            "statusCode" : "0005",
+            "transactionCode" : "0311",
+            "userMessage" : "En este momento no es posible realizar la operación."
+        }
+    },
+    "NotAcceptedTnCWM" : {
+        "_status" : {
+            "statusCode" : "0007",
+            "transactionCode" : "0311",
+            "userMessage" : "Para activar billetera movil debes aceptar los términos y condiciones."
+        }
+    },
+    "NotDownloadedWM" : {
+        "_status" : {
+            "statusCode" : "0008",
+            "transactionCode" : "0311",
+            "userMessage" : "En este momento no es posible realizar la operación."
+        }
+    }
+}

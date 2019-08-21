@@ -1,0 +1,6 @@
+framework module Component_iOS_JOSE_Implementation {
+  umbrella header "Component_iOS_JOSE_Implementation.h"
+
+  export *
+  module * { export * }
+}

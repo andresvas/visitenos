@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.todo1.plugins.WalletPlugin" version="1.0.2" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>WalletPlugin</name>
+    <js-module name="WalletPlugin" src="www/WalletPlugin.js">
+        <clobbers target="cordova.plugins.WalletPlugin"/>
+    </js-module>
+    <platform name="android">
+        <preference name="GMAPS_API_KEY" default="AIzaSyAClh9YC9PcCEBs7eUdg6OAraDsNB4_wNc"/>
+        <!--<preference name="ENVIRONMENT" default="qa"/>-->
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="WalletPlugin">
+                <param name="android-package" value="com.todo1.plugins.wallet.WalletPlugin"/>
+            </feature>
+        </config-file>
+        <hook type="before_prepare" src="hooks/add_config_geolocation.js" />
+        <source-file src="src/android/stylebar.xml" target-dir="res/values" />
+        <config-file parent="/manifest" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.CAMERA"/>
+            <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+            <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <meta-data android:name="com.google.android.geo.API_KEY" android:value="$GMAPS_API_KEY"/>
+            <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        </config-file>
+
+        <source-file src="src/android/WalletPlugin.java" target-dir="src/com/todo1/plugins/wallet"/>
+        <resource-file src="src/android/libs" target="libs" />
+        <framework custom="true" src="src/android/wallet.gradle" type="gradleReference"/>
+    </platform>
+
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="WalletPlugin">
+                <param name="ios-package" value="WalletPlugin"/>
+            </feature>
+        </config-file>
+        <source-file src="src/ios/WalletPlugin.m"/>
+        <header-file src="src/ios/WalletPlugin.h"/>
+
+        <source-file src="src/ios/QrScanViewController.m"/>
+        <header-file src="src/ios/QrScanViewController.h"/>
+
+        <framework src="src/ios/Components/Component_iOS_Crypto_Implementation.framework" custom="true" embed="true"/>
+        <framework src="src/ios/Components/Component_iOS_Crypto_Interface.framework" custom="true" embed="true"/>
+        <framework src="src/ios/Components/Component_iOS_JOSE_Implementation.framework" custom="true" embed="true"/>
+        <framework src="src/ios/Components/Component_iOS_JOSE_Interface.framework" custom="true" embed="true"/>
+        <framework src="src/ios/Components/Component_iOS_Wallet_Domain_Implementation.framework" custom="true" embed="true"/>
+        <framework src="src/ios/Components/Component_iOS_Wallet_Domain_Interface.framework" custom="true" embed="true"/>
+        <framework src="src/ios/Components/Crypto.framework" custom="true" embed="true"/>
+        <framework src="src/ios/Components/JOSE.framework" custom="true" embed="true"/>
+        <framework src="src/ios/Components/Wallet.framework" custom="true" embed="true"/>
+        <framework src="AFNetworking" type="podspec" spec="~> 3.0"/>
+
+        <header-file src="src/ios/Components/JailBreakDetectionLib/JailbreakDetection.h"/>
+        <source-file src="src/ios/Components/JailBreakDetectionLib/libJailbreakDetection.a" framework="true"/>
+
+        <resource-file src="src/ios/Components/QRInterpreterLib/beep.mp3"/>
+        <header-file src="src/ios/Components/QRInterpreterLib/NetcomSeguridadDatosQRCliente.h"/>
+        <source-file src="src/ios/Components/QRInterpreterLib/libNetcomSeguridadDatosQRCliente.a" framework="true"/>
+
+        <hook type="before_plugin_install" src="hooks/parse_ios_libs_for_env.js"/>
+        <hook type="after_plugin_install" src="hooks/ios_embed_framework_hook.js"/>
+        <hook type="after_plugin_install" src="hooks/ios_build_config.js"/>
+
+        <preference name="CAMERA_USAGE_DESCRIPTION" default="This app needs access to the camera to capture QR Codes"/>
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>$CAMERA_USAGE_DESCRIPTION</string>
+        </config-file>
+    </platform>
+</plugin>

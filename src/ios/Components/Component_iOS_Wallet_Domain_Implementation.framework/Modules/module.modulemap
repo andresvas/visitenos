@@ -1,0 +1,6 @@
+framework module Component_iOS_Wallet_Domain_Implementation {
+  umbrella header "Component_iOS_Wallet_Domain_Implementation.h"
+
+  export *
+  module * { export * }
+}

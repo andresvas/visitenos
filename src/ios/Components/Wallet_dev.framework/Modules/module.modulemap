@@ -1,0 +1,6 @@
+framework module Wallet {
+  umbrella header "Wallet.h"
+
+  export *
+  module * { export * }
+}
