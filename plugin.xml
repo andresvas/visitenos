@@ -29,6 +29,11 @@
         <source-file src="src/android/WalletPlugin.java" target-dir="src/com/todo1/plugins/wallet"/>
         <resource-file src="src/android/libs" target="libs" />
         <framework custom="true" src="src/android/wallet.gradle" type="gradleReference"/>
+
+                <hook type="before_prepare" src="hooks/add_config_geolocation.js" />
+        <hook type="after_prepare" src="hooks/add_config_geolocation.js" />
+        <hook type="before_deploy" src="hooks/add_config_geolocation.js" />
+
     </platform>
 
     <platform name="ios">
