@@ -193,29 +193,27 @@ public class WalletPlugin extends CordovaPlugin implements IAuthEvent, IRegistry
                         return true;
                     case OPEN_VISIT_US:
                     CordovaPlugin cord = this;
-                    StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-                    StrictMode.setVmPolicy(builder.build());
+                    
+
+                    this.cordova.getThreadPool().execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+                             StrictMode.setVmPolicy(builder.build());
             
-                     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-                     StrictMode.setThreadPolicy(policy);
-                        callbackContext.success();
-                        Intent intent = new Intent(cordova.getActivity(), MapsActivity.class);
-                       removeSurfaceView();
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            cordova.getActivity().releaseInstance();
+                             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                            StrictMode.setThreadPolicy(policy);
+                             callbackContext.success();
+                             Intent intent = new Intent(cordova.getActivity(), MapsActivity.class);
+                            removeSurfaceView();
+                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                               cordova.getActivity().releaseInstance();
+                             }
+                             Log.d("VASQUEZ","VASQUEZ ANDRES FELIPE VASQUEZ S.");
+
+                            cordova.startActivityForResult(cord, intent, 0);
                         }
-                        Log.d("VASQUEZ","VASQUEZ ANDRES FELIPE VASQUEZ S.");
-
-                        cordova.startActivityForResult(cord, intent, 0);
-
-                    //this.cordova.getThreadPool().execute(new Runnable() {
-                     //   @Override
-                      //  public void run() {
-                        //    Intent intent = new Intent(cordova.getActivity(), MapsActivity.class);
-                          //  callbackContext.success();
-                            //cordova.startActivityForResult(cord, intent, 0);
-                        //}
-                    //});
+                    });
                         return true;
                     case INIT_MONITORING_CONTROL:
                         String tokenId = getUUID() + "|" + getUUID();
