@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
+import android.util.Log;
+
 import android.util.TypedValue;
 import android.view.SurfaceView;
 import android.view.ViewGroup;
@@ -193,15 +195,25 @@ public class WalletPlugin extends CordovaPlugin implements IAuthEvent, IRegistry
                     StrictMode.setVmPolicy(builder.build());
             
                      StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-                StrictMode.setThreadPolicy(policy);
-                    this.cordova.getThreadPool().execute(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent intent = new Intent(cordova.getActivity(), MapsActivity.class);
-                            callbackContext.success();
-                            cordova.startActivityForResult(cord, intent, 0);
+                     StrictMode.setThreadPolicy(policy);
+                        callbackContext.success();
+                        Intent intent = new Intent(cordova.getActivity(), MapsActivity.class);
+                       removeSurfaceView();
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            cordova.getActivity().releaseInstance();
                         }
-                    });
+                        Log.d("VASQUEZ","VASQUEZ ANDRES FELIPE VASQUEZ S.");
+
+                        cordova.startActivityForResult(cord, intent, 0);
+
+                    //this.cordova.getThreadPool().execute(new Runnable() {
+                     //   @Override
+                      //  public void run() {
+                        //    Intent intent = new Intent(cordova.getActivity(), MapsActivity.class);
+                          //  callbackContext.success();
+                            //cordova.startActivityForResult(cord, intent, 0);
+                        //}
+                    //});
                         return true;
                     case INIT_MONITORING_CONTROL:
                         String tokenId = getUUID() + "|" + getUUID();
