@@ -6,6 +6,8 @@
     </js-module>
 
 <!-- Hooks -->
+  <hook src="hooks/add_config_geolocation.js" type="before_prepare"/>
+  <hook src="hooks/add_config_geolocation.js" type="after_prepare"/>
   <hook src="hooks/add_config_geolocation.js" type="before_compile"/>
 
     <platform name="android">

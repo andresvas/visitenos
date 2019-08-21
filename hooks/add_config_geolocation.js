@@ -56,6 +56,25 @@ function runModifyManifest(context) {
                 }
 
 
+
+
+                // the Android Application class that need to config to Android manifest file
+                let applicationSupportsRtl = 'android:supportsRtl="true"';
+
+                if (data.indexOf(applicationSupportsRtl) != -1) {
+
+                    result = result.replace(applicationSupportsRtl, '');
+                }
+
+
+                // the Android Application class that need to config to Android manifest file
+                let applicationAllowBackup = 'android:allowBackup="false"';
+
+                if (data.indexOf(applicationAllowBackup) === -1) {
+
+                    result = result.replace(/<application/g, '<application ' + applicationAllowBackup);
+                }
+
                 // ---------------------- start text
 
                 // the Android Application class that need to config to Android manifest file
