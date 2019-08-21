@@ -9,6 +9,8 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.os.Build;
+
 
 import android.util.TypedValue;
 import android.view.SurfaceView;
