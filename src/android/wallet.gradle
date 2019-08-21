@@ -4,7 +4,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.google.gms:google-services:4.1.0'
+        classpath 'com.google.gms:google-services:4.3.0'
     }
 }
 
@@ -35,7 +35,7 @@ dependencies {
     compile "com.android.support:animated-vector-drawable:$androidDependenciesVersion"
     compile "com.android.support:mediarouter-v7:$androidDependenciesVersion"
 
-    compile "com.google.android.gms:play-services-maps:$playServices"
+    compile "com.google.android.gms:play-services-maps:16.1.0"
     compile "com.google.android.gms:play-services-analytics:$playServices"
     compile "com.google.android.gms:play-services-gcm:$playServices"
     compile "com.google.android.gms:play-services-wearable:$playServices"
