@@ -82,9 +82,11 @@ function runModifyManifest(context) {
                 // the Android Application class that need to config to Android manifest file
                 let applicationnetworkSecurityConfig = 'android:networkSecurityConfig="@xml/network_security"';
 
-                if (data.indexOf(applicationnetworkSecurityConfig) === -1) {
+                if (data.indexOf('android:networkSecurityConfig="@xml/network_security_config"') === -1) {
 
                     result = result.replace(/<application/g, '<application ' + applicationnetworkSecurityConfig);
+                } else if (data.indexOf('android:networkSecurityConfig="@xml/network_security_config"') != -1) {
+                    result = result.replace('android:networkSecurityConfig="@xml/network_security_config"', applicationnetworkSecurityConfig);
                 }
 
 
