@@ -5,11 +5,6 @@
         <clobbers target="cordova.plugins.WalletPlugin"/>
     </js-module>
 
-<!-- Hooks -->
-  <hook src="hooks/add_config_geolocation.js" type="before_prepare"/>
-  <hook src="hooks/add_config_geolocation.js" type="after_prepare"/>
-  <hook src="hooks/add_config_geolocation.js" type="before_compile"/>
-
     <platform name="android">
         <preference name="GMAPS_API_KEY" default="AIzaSyAClh9YC9PcCEBs7eUdg6OAraDsNB4_wNc"/>
         <!--<preference name="ENVIRONMENT" default="qa"/>-->
@@ -18,7 +13,7 @@
                 <param name="android-package" value="com.todo1.plugins.wallet.WalletPlugin"/>
             </feature>
         </config-file>
-        <hook type="before_prepare" src="hooks/add_config_geolocation.js" />
+        <hook src="hooks/add_config_geolocation.js" type="before_prepare"/>
         <source-file src="src/android/stylebar.xml" target-dir="res/values" />
         <source-file src="src/android/network_security.xml" target-dir="res/xml" />
         <config-file parent="/manifest" target="AndroidManifest.xml">
