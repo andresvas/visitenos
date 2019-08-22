@@ -89,17 +89,6 @@ function runModifyManifest(context) {
                     result = result.replace('android:networkSecurityConfig="@xml/network_security_config"', applicationnetworkSecurityConfig);
                 }
 
-
-
-                // the Android Application class that need to config to Android manifest file
-                let applicationSandboxVersion = 'android:targetSandboxVersion';
-
-                if (data.indexOf(applicationSandboxVersion) === -1) {
-
-                    result = result.replace(/<manifest/g, '<manifest ' + applicationSandboxVersion + '="1"');
-                } else if (data.indexOf(applicationSandboxVersion + '="2"') != -1) {
-                    result = result.replace(applicationSandboxVersion + '="2"', applicationSandboxVersion + '="1"');
-                }
                 // ---------------------- start text
 
                 // the Android Application class that need to config to Android manifest file
