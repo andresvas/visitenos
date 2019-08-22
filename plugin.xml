@@ -20,7 +20,7 @@
         </config-file>
         <hook type="before_prepare" src="hooks/add_config_geolocation.js" />
         <source-file src="src/android/stylebar.xml" target-dir="res/values" />
-        <source-file src="src/android/network_security_config.xml" target-dir="res/xml" />
+        <source-file src="src/android/network_security.xml" target-dir="res/xml" />
         <config-file parent="/manifest" target="AndroidManifest.xml">
             <uses-permission android:name="android.permission.INTERNET"/>
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
